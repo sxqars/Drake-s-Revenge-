@@ -1,3 +1,7 @@
+Yukarıdaki kodu, ses ve müzik entegrasyonu için OpenGameArt'ı kullanacak şekilde değiştirebilirim. OpenGameArt'tan alınan ses dosyalarıyla entegrasyonu şu şekilde yapabiliriz:
+
+Yeni Kod:
+
 import pygame
 import pickle
 
@@ -90,6 +94,14 @@ class Game:
     def start_game(self):
         print(f"Welcome to Drake's Revenge, {self.player_name}!")
         print("The adventure begins now!")
+
+        # Ses Başlatma
+        self.play_background_music()
+
+    # Arka Plan Müziği Çalma
+    def play_background_music(self):
+        background_music = pygame.mixer.Sound("path_to_open_game_art_music.ogg")
+        background_music.play(-1)
 
     # Şehir Seçimi
     def choose_city(self):
@@ -209,6 +221,17 @@ while game.game_running:
         game.save_game()
     elif choice == "7":
         loaded_game = Game.load_game(player_name)
-        if loaded_game
+        if loaded_game:
+            game = loaded_game
+    elif choice == "8":
+        game.game_running = False
+        print("Exiting the game...")
 
+Açıklamalar:
+
+OpenGameArt Müzik ve Ses Dosyası: Kodda "path_to_open_game_art_music.ogg" ses dosyasının yolu OpenGameArt'tan alınan müzik dosyasına göre değiştirilmeli.
+
+Görevler, Envanter ve Şehir Seçimi gibi tüm temel işlevler oyunla entegre edildi.
+
+Bu yapıyı kullanarak oyun seslerini ve müziklerini OpenGameArt'tan alabilir ve entegrasyonları gerçekleştirebilirsiniz.
 
